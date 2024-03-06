@@ -23,8 +23,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-@TestMethodOrder(OrderAnnotation.class)
-public class Task4 {
+public class Tests {
 	private WebDriver driver;
 	private WebDriverWait wait;
 	private static String email;
