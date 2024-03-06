@@ -18,7 +18,7 @@ import java.util.NoSuchElementException;
 
 
 
-public class Task2 {
+public class Test2 {
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "Drivers\\\\chromeexec\\\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
