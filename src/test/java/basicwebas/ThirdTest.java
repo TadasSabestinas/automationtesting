@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class Test3 {
+public class ThirdTest {
 
 	public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "Drivers\\chromeexec\\chromedriver.exe");
