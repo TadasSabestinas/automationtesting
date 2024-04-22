@@ -1,5 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>Testing</groupId>
@@ -12,16 +13,19 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source> <!-- Set Java version for source compilation -->
+    <maven.compiler.target>11</maven.compiler.target> <!-- Set Java version for target VM -->
   </properties>
 
   <dependencies>
-	  <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-	<dependency>
-	    <groupId>org.seleniumhq.selenium</groupId>
-	    <artifactId>selenium-java</artifactId>
-	    <version>4.17.0</version>
-	</dependency>
+    <!-- Selenium API -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.17.0</version>
+    </dependency>
 
+    <!-- JUnit 4 -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -29,38 +33,52 @@
       <scope>test</scope>
     </dependency>
     
+    <!-- JUnit Jupiter API for JUnit 5 -->
     <dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-api</artifactId>
-    <version>5.8.1</version> <!-- Use the latest version available -->
-    <scope>test</scope>
-</dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.8.1</version>
+      <scope>test</scope>
+    </dependency>
 
-<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-engine</artifactId>
-    <version>5.8.1</version>
-    <scope>test</scope>
-</dependency>
+    <!-- JUnit Jupiter Engine for JUnit 5 -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.8.1</version>
+      <scope>test</scope>
+    </dependency>
 
-<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-params</artifactId>
-    <version>5.8.2</version> <!-- Use the latest version -->
-    <scope>test</scope>
-</dependency>
-    
-	</dependencies>
-	  <build>
-	    <plugins>
-	        <plugin>
-	            <groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-surefire-plugin</artifactId>
-	            <version>3.0.0-M5</version> <!-- Use the latest version available -->
-	            <configuration>
-	                <!-- Optional configuration here -->
-	            </configuration>
-	        </plugin>
-	    </plugins>
-	</build>
+    <!-- JUnit Jupiter Params for parameterized tests in JUnit 5 -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <version>5.8.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version> <!-- Use the latest version compatible with JDK 11 -->
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version> <!-- Ensure compatibility with JUnit 5 -->
+        <configuration>
+          <!-- No special configuration needed for basic use cases -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
+
